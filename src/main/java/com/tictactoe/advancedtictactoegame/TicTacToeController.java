@@ -169,7 +169,7 @@ public class TicTacToeController {
         if (allFields.get(x).getTextFill().equals(allFields.get(y).getTextFill())
                 && allFields.get(x).getTextFill().equals(allFields.get(z).getTextFill())) {
             centerText.setText("Winner!");
-            centerText.setFill(topLeftButton.getTextFill());
+            centerText.setFill(allFields.get(x).getTextFill());
             return 1;
         }
 
@@ -195,7 +195,11 @@ public class TicTacToeController {
     }
 
     private void nextTurn(){
-        if (checkForWinner()) return;
+        if (checkForWinner()) {
+            changeButtonsState(redPlayerButtons, false);
+            changeButtonsState(bluePlayerButtons, false);
+            return;
+        }
 
         playersTurn++;
         if (playersTurn % 2 == 0) {
