@@ -140,15 +140,8 @@ public class TicTacToeController {
         if (currentValue.getTextFill().equals(Color.GRAY))
             return;
 
-        chooseField(currentValue, topLeftButton);
-        chooseField(currentValue, topMiddleButton);
-        chooseField(currentValue, topRightButton);
-        chooseField(currentValue, middleLeftButton);
-        chooseField(currentValue, middleCenterButton);
-        chooseField(currentValue, middleRightButton);
-        chooseField(currentValue, bottomLeftButton);
-        chooseField(currentValue, bottomMiddleButton);
-        chooseField(currentValue, bottomRightButton);
+        for (Button button : allFields)
+            chooseField(currentValue, button);
     }
 
     //TODO: other winning patterns
