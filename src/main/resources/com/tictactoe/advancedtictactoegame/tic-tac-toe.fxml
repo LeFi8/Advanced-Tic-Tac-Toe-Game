@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="685.0" style="-fx-background-color: #1F1B24;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tictactoe.advancedtictactoegame.TicTacToeController" fx:id="root">
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="685.0" style="-fx-background-color: #1F1B24;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.tictactoe.advancedtictactoegame.TicTacToeController">
    <children>
       <BorderPane layoutX="53.0" layoutY="43.0" prefHeight="440.0" prefWidth="580.0">
          <top>
@@ -21,7 +21,7 @@
          <left>
             <FlowPane alignment="CENTER" hgap="10.0" prefHeight="200.0" prefWidth="130.0" vgap="10.0" BorderPane.alignment="CENTER">
                <children>
-                  <Text fill="#c60000" strokeType="OUTSIDE" strokeWidth="0.0" text="RED PLAYER" textAlignment="CENTER" wrappingWidth="114.36279296875">
+                  <Text fx:id="redPlayer" fill="#c60000" strokeType="OUTSIDE" strokeWidth="0.0" text="RED PLAYER" textAlignment="CENTER" wrappingWidth="114.36279296875">
                      <font>
                         <Font size="25.0" />
                      </font>
@@ -113,7 +113,7 @@
          <right>
             <FlowPane alignment="CENTER" hgap="10.0" prefHeight="200.0" prefWidth="130.0" vgap="10.0" BorderPane.alignment="CENTER">
                <children>
-                  <Text fill="#00bdc4" strokeType="OUTSIDE" strokeWidth="0.0" text="BLUE PLAYER" textAlignment="CENTER" wrappingWidth="114.36279296875">
+                  <Text fx:id="bluePlayer" fill="#00bdc4" strokeType="OUTSIDE" strokeWidth="0.0" text="BLUE PLAYER" textAlignment="CENTER" wrappingWidth="114.36279296875">
                      <font>
                         <Font size="25.0" />
                      </font>
