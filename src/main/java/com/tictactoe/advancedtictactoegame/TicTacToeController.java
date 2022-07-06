@@ -144,17 +144,37 @@ public class TicTacToeController {
             chooseField(currentValue, button);
     }
 
-    //TODO: other winning patterns
     private boolean checkForWinner(){
-        if (!topLeftButton.getText().isEmpty() && !topMiddleButton.getText().isEmpty() && !topRightButton.getText().isEmpty()) {
-            if (topLeftButton.getTextFill().equals(topMiddleButton.getTextFill())
-                    && topMiddleButton.getTextFill().equals(topRightButton.getTextFill())) {
-                centerText.setText("Winner!");
-                centerText.setFill(topLeftButton.getTextFill());
-                return true;
-            }
+        int result = 0;
+        result += checkFields(0, 1, 2);
+        result += checkFields(3, 4, 5);
+        result += checkFields(6, 7, 8);
+
+        result += checkFields(0, 3, 5);
+        result += checkFields(1, 4, 7);
+        result += checkFields(2, 6, 8);
+
+        result += checkFields(0, 4, 8);
+        result += checkFields(2, 4, 6);
+
+        return result > 0;
+    }
+
+    private int checkFields(int x, int y, int z) {
+        if (allFields.get(x).getText().isEmpty()
+                || allFields.get(y).getText().isEmpty()
+                || allFields.get(z).getText().isEmpty())
+            return 0;
+
+        if (allFields.get(x).getTextFill().equals(allFields.get(y).getTextFill())
+                && allFields.get(x).getTextFill().equals(allFields.get(z).getTextFill())) {
+            centerText.setText("Winner!");
+            centerText.setFill(topLeftButton.getTextFill());
+            return 1;
         }
-        return false;
+
+        return 0;
+
     }
 
     private void chooseField(Button value, Button field){
