@@ -122,9 +122,26 @@ public class TicTacToeController {
     void displayRules(){
         Alert rules = new Alert(Alert.AlertType.INFORMATION);
         rules.setTitle("Rules");
-        rules.setHeaderText("Rules");
+        rules.setHeaderText("About the game");
 
-        String gameDescription = "Welcome to different version of the \nTic Tac Toe game.";
+        String gameDescription = "Welcome to different version of the Tic Tac Toe \n" +
+                "game. The goal of the game is to match three of \n" +
+                "your colored pieces before your opponent does.\n" +
+                "\n" +
+                "The first player is determined randomly. \n" +
+                "The starting player may place any piece of any size\n" +
+                "from their characters to any spot on the board.\n" +
+                "\n" +
+                "From here players will take turns placing their \n" +
+                "characters onto the board. Bigger pieces can \n" +
+                "always cover smaller pieces that means you can \n" +
+                "place larger pieces over yours or your \n" +
+                "opponent’s smaller ones. \n" +
+                "\n" +
+                "The game ends when a player \n" +
+                "manages to get 3 of their colored pieces in a row. \n" +
+                "The player to first complete this goal is the winner.";
+
         rules.setContentText(gameDescription);
         rules.show();
     }
