@@ -168,5 +168,6 @@
             </FlowPane>
          </bottom>
       </BorderPane>
+      <Button fx:id="rules" layoutX="619.0" layoutY="483.0" mnemonicParsing="false" onAction="#displayRules" style="-fx-background-color: grey;" text="HELP" textFill="WHITE" />
    </children>
 </AnchorPane>

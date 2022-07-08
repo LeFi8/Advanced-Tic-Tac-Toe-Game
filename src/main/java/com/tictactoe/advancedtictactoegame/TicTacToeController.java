@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
@@ -94,6 +95,7 @@ public class TicTacToeController {
     private Text bluePlayer;
 
     private int playersTurn;
+    private int numberOfTurns = 0;
 
     private final List<Button> allFields = new ArrayList<>();
 
@@ -114,6 +116,17 @@ public class TicTacToeController {
 
         changeButtonsState(redPlayerButtons, false);
         changeButtonsState(bluePlayerButtons, false);
+    }
+
+    @FXML
+    void displayRules(){
+        Alert rules = new Alert(Alert.AlertType.INFORMATION);
+        rules.setTitle("Rules");
+        rules.setHeaderText("Rules");
+
+        String gameDescription = "Welcome to different version of the \nTic Tac Toe game.";
+        rules.setContentText(gameDescription);
+        rules.show();
     }
 
     @FXML
@@ -168,13 +181,18 @@ public class TicTacToeController {
 
         if (allFields.get(x).getTextFill().equals(allFields.get(y).getTextFill())
                 && allFields.get(x).getTextFill().equals(allFields.get(z).getTextFill())) {
-            centerText.setText("Winner!");
+            gameFinished("Winner!");
             centerText.setFill(allFields.get(x).getTextFill());
             return 1;
         }
 
         return 0;
+    }
 
+    private void gameFinished(String text){
+        centerText.setText(text);
+        changeButtonsState(redPlayerButtons, false);
+        changeButtonsState(bluePlayerButtons, false);
     }
 
     private void chooseField(Button value, Button field){
@@ -195,14 +213,16 @@ public class TicTacToeController {
     }
 
     private void nextTurn(){
-        if (checkForWinner()) {
-            changeButtonsState(redPlayerButtons, false);
-            changeButtonsState(bluePlayerButtons, false);
+        if (checkForWinner())
+            return;
+
+        if (numberOfTurns++ == 12) {
+            centerText.setFill(Color.WHITE);
+            gameFinished("Draw!");
             return;
         }
 
-        playersTurn++;
-        if (playersTurn % 2 == 0) {
+        if (++playersTurn % 2 == 0) {
             changeButtonsState(redPlayerButtons, false);
             changeButtonsState(bluePlayerButtons, true);
             centerText.setText("Blue player's turn");
