@@ -19,3 +19,7 @@ The player to first complete this goal is the winner.
 
 ## Game preview
 <p align="center"><img src="/sample_game/tic-tac-toe_sample.gif"></p>
+
+### Tools used in the project
+- java
+- javafx
